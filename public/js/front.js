@@ -2089,7 +2089,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       urlGet: "/api/posts",
-      urlPut: "/api/posts/update",
+      urlPut: "/api/posts/update/",
       postsData: [],
       lastPage: null,
       nowPage: null
@@ -2108,22 +2108,19 @@ __webpack_require__.r(__webpack_exports__);
         _this.postsData = r.data.data;
         _this.lastPage = r.data.last_page;
         _this.nowPage = r.data.current_page;
-        console.log(_this.postsData);
-        console.log(_this.lastPage);
-        console.log(_this.nowPage);
       });
     },
     like: function like(id) {
       var _this2 = this;
 
-      putParams = id;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.urlPut, {
-        "id ": putParams
-      }).then(function (r) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.urlPut + id).then(function (r) {
         console.log(r.data);
         _this2.postsData = r.data;
+
+        _this2.getApi();
+      })["catch"](function (error) {
+        console.log(error);
       });
-      this.getApi();
     }
   },
   mounted: function mounted() {
@@ -2214,8 +2211,10 @@ var render = function render() {
       staticClass: "content"
     }, [_vm._v(_vm._s(post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.likes))]), _vm._v(" "), _c("span", {
       staticClass: "likes",
-      attrs: {
-        onclick: "likes(post.id)"
+      on: {
+        click: function click($event) {
+          return _vm.like(post.id);
+        }
       }
     }, [_vm._v("❤")])]);
   }), 0), _vm._v(" "), _c("div", {

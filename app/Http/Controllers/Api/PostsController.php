@@ -13,9 +13,9 @@ class PostsController extends Controller
         return response()->json($posts);
     }
 
-    public function update(Request $id){
+    public function update(Request $request, $id){
         $post = Post::find($id);
-        $post->id = $post->id + 1;
+        $post->likes = $post->likes + 1;
         $post->update();
     }
 }

@@ -16,7 +16,7 @@
                     <p class="content">{{post.content}}</p>
                     <p>{{post.likes}}</p>
                     <span class="likes"
-                    onclick="likes(post.id)"
+                    @click="like(post.id)"
                     >&#10084;</span>
                 </div>
 
@@ -65,7 +65,7 @@ export default {
     data() {
         return {
             urlGet: "/api/posts",
-            urlPut: "/api/posts/update",
+            urlPut: "/api/posts/update/",
             postsData : [],
             lastPage : null,
             nowPage: null
@@ -83,20 +83,20 @@ export default {
                 this.postsData = r.data.data
                 this.lastPage = r.data.last_page
                 this.nowPage = r.data.current_page
-                console.log(this.postsData)
-                console.log(this.lastPage)
-                console.log(this.nowPage)
             })
         },
 
         like(id){
-            putParams = id
-            Axios.put(this.urlPut,{ "id ": putParams })
+            Axios.put(this.urlPut+id
+            )
             .then(r=>{
                 console.log(r.data)
                 this.postsData = r.data
+                this.getApi()
             })
-            this.getApi()
+            .catch(function (error) {
+                console.log(error);
+            });
         }
     },
     mounted(){
