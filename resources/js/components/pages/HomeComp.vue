@@ -20,6 +20,33 @@
                     >&#10084;</span>
                 </div>
 
+
+            </div>
+            <div class="pages">
+                <button
+                    @click="getApi(nowPage - 1)"
+                    :disabled="nowPage === 1"
+                >Back</button>
+                <button
+                    @click="getApi(i)"
+                    class="minicards"
+                    v-for="i in lastPage"
+                    :key="i"
+                    :disabled="nowPage === i"
+                    :class=" (nowPage === i)? 'active': ''"
+                >
+                {{i}}
+                </button>
+                <button
+                    @click="getApi(nowPage + 1)"
+                    :disabled="nowPage === lastPage"
+                    :class=" (nowPage === lastPage)? 'active': ''"
+                >Next</button>
+                <button
+                    @click="getApi(lastPage)"
+                    :class=" (nowPage === lastPage)? 'active': ''"
+                    :disabled="nowPage === lastPage"
+                >Last page</button>
             </div>
 
         </main>
@@ -37,43 +64,43 @@ export default {
     name: "App",
     data() {
         return {
-            urlGet: "http://127.0.0.1:8000/api/posts",
-
-            urlPut: "http://127.0.0.1:8000/api/posts/update",
-
-
+            urlGet: "/api/posts",
+            urlPut: "/api/posts/update",
             postsData : [],
+            lastPage : null,
+            nowPage: null
         }
     },
     methods: {
-        getApi(){
-            Axios.get(this.urlGet)
+        getApi(page){
+            Axios.get(this.urlGet, {
+                params:{
+                    page : page
+                }
+            })
             .then(r=>{
-
                 console.log(r.data)
-                this.postsData = r.data
-
+                this.postsData = r.data.data
+                this.lastPage = r.data.last_page
+                this.nowPage = r.data.current_page
+                console.log(this.postsData)
+                console.log(this.lastPage)
+                console.log(this.nowPage)
             })
         },
 
         like(id){
-
             putParams = id
-
             Axios.put(this.urlPut,{ "id ": putParams })
             .then(r=>{
-
                 console.log(r.data)
                 this.postsData = r.data
-
             })
-
-
             this.getApi()
         }
     },
     mounted(){
-        this.getApi()
+        this.getApi(1)
     }
 }
 </script>
@@ -83,9 +110,11 @@ export default {
 
 .container{
     color: black;
+    flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     .card{
         margin: 20px 20px;
         width: 250px;
@@ -105,6 +134,22 @@ export default {
             &:hover{
                 font-size: 40px;
             }
+        }
+    }
+}
+
+.pages{
+    padding: 20px;
+
+    button{
+        padding: 15px;
+        margin: 0 10px;
+        background-color: yellowgreen ;
+        font-weight: bolder;
+        border-width: 0;
+        &:hover,
+        &.active{
+            background-color: rgba(153, 205, 50, 0.413);
         }
     }
 }

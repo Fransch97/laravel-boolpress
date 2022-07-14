@@ -2088,18 +2088,29 @@ __webpack_require__.r(__webpack_exports__);
   name: "App",
   data: function data() {
     return {
-      urlGet: "http://127.0.0.1:8000/api/posts",
-      urlPut: "http://127.0.0.1:8000/api/posts/update",
-      postsData: []
+      urlGet: "/api/posts",
+      urlPut: "/api/posts/update",
+      postsData: [],
+      lastPage: null,
+      nowPage: null
     };
   },
   methods: {
-    getApi: function getApi() {
+    getApi: function getApi(page) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.urlGet).then(function (r) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.urlGet, {
+        params: {
+          page: page
+        }
+      }).then(function (r) {
         console.log(r.data);
-        _this.postsData = r.data;
+        _this.postsData = r.data.data;
+        _this.lastPage = r.data.last_page;
+        _this.nowPage = r.data.current_page;
+        console.log(_this.postsData);
+        console.log(_this.lastPage);
+        console.log(_this.nowPage);
       });
     },
     like: function like(id) {
@@ -2116,7 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.getApi();
+    this.getApi(1);
   }
 });
 
@@ -2207,7 +2218,52 @@ var render = function render() {
         onclick: "likes(post.id)"
       }
     }, [_vm._v("❤")])]);
-  }), 0)]), _vm._v(" "), _c("footer-comp")], 1);
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "pages"
+  }, [_c("button", {
+    attrs: {
+      disabled: _vm.nowPage === 1
+    },
+    on: {
+      click: function click($event) {
+        return _vm.getApi(_vm.nowPage - 1);
+      }
+    }
+  }, [_vm._v("Back")]), _vm._v(" "), _vm._l(_vm.lastPage, function (i) {
+    return _c("button", {
+      key: i,
+      staticClass: "minicards",
+      "class": _vm.nowPage === i ? "active" : "",
+      attrs: {
+        disabled: _vm.nowPage === i
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getApi(i);
+        }
+      }
+    }, [_vm._v("\n                " + _vm._s(i) + "\n                ")]);
+  }), _vm._v(" "), _c("button", {
+    "class": _vm.nowPage === _vm.lastPage ? "active" : "",
+    attrs: {
+      disabled: _vm.nowPage === _vm.lastPage
+    },
+    on: {
+      click: function click($event) {
+        return _vm.getApi(_vm.nowPage + 1);
+      }
+    }
+  }, [_vm._v("Next")]), _vm._v(" "), _c("button", {
+    "class": _vm.nowPage === _vm.lastPage ? "active" : "",
+    attrs: {
+      disabled: _vm.nowPage === _vm.lastPage
+    },
+    on: {
+      click: function click($event) {
+        return _vm.getApi(_vm.lastPage);
+      }
+    }
+  }, [_vm._v("Last page")])], 2)]), _vm._v(" "), _c("footer-comp")], 1);
 };
 
 var staticRenderFns = [];
@@ -2300,7 +2356,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-color: black;\n  color: white;\n  text-align: center;\n}\nnav {\n  background: yellowgreen;\n  height: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nnav li {\n  list-style: none;\n  margin: 0 30px;\n}\nnav li a {\n  text-decoration: none;\n  color: black;\n  font-weight: bolder;\n  font-size: 1.3rem;\n}\nnav li a:hover, nav li a:active {\n  text-decoration: underline;\n  color: rgb(15, 69, 150);\n}\nmain {\n  min-height: calc(100vh - 150px);\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-color: black;\n  color: white;\n  text-align: center;\n}\nnav {\n  background: yellowgreen;\n  height: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nnav li {\n  list-style: none;\n  margin: 0 30px;\n}\nnav li a {\n  text-decoration: none;\n  color: black;\n  font-weight: bolder;\n  font-size: 1.3rem;\n}\nnav li a:hover, nav li a:active {\n  text-decoration: underline;\n  color: rgb(15, 69, 150);\n}\nmain {\n  min-height: calc(100vh - 150px);\n  display: flex;\n  flex-direction: column;\n}", ""]);
 
 // exports
 
@@ -2319,7 +2375,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".container {\n  color: black;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.container .card {\n  margin: 20px 20px;\n  width: 250px;\n  padding: 20px;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  border-radius: 20px;\n}\n.container .card .content {\n  flex-grow: 1;\n}\n.container .card .likes {\n  font-size: 30px;\n  color: red;\n  cursor: pointer;\n}\n.container .card .likes:hover {\n  font-size: 40px;\n}", ""]);
+exports.push([module.i, ".container {\n  color: black;\n  flex-grow: 1;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n}\n.container .card {\n  margin: 20px 20px;\n  width: 250px;\n  padding: 20px;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  border-radius: 20px;\n}\n.container .card .content {\n  flex-grow: 1;\n}\n.container .card .likes {\n  font-size: 30px;\n  color: red;\n  cursor: pointer;\n}\n.container .card .likes:hover {\n  font-size: 40px;\n}\n.pages {\n  padding: 20px;\n}\n.pages button {\n  padding: 15px;\n  margin: 0 10px;\n  background-color: yellowgreen;\n  font-weight: bolder;\n  border-width: 0;\n}\n.pages button:hover, .pages button.active {\n  background-color: rgba(153, 205, 50, 0.413);\n}", ""]);
 
 // exports
 
