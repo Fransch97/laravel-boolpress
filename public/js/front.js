@@ -2035,31 +2035,8 @@ __webpack_require__.r(__webpack_exports__);
       postsData: []
     };
   },
-  methods: {
-    getApi: function getApi() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.urlGet).then(function (r) {
-        console.log(r.data);
-        _this.postsData = r.data;
-      });
-    },
-    like: function like(id) {
-      var _this2 = this;
-
-      putParams = id;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.urlPut, {
-        "id ": putParams
-      }).then(function (r) {
-        console.log(r.data);
-        _this2.postsData = r.data;
-      });
-      this.getApi();
-    }
-  },
-  mounted: function mounted() {
-    this.getApi();
-  }
+  methods: {},
+  mounted: function mounted() {}
 });
 
 /***/ }),

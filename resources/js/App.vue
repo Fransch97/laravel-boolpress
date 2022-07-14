@@ -37,34 +37,10 @@ export default {
         }
     },
     methods: {
-        getApi(){
-            Axios.get(this.urlGet)
-            .then(r=>{
-
-                console.log(r.data)
-                this.postsData = r.data
-
-            })
-        },
-
-        like(id){
-
-            putParams = id
-
-            Axios.put(this.urlPut,{ "id ": putParams })
-            .then(r=>{
-
-                console.log(r.data)
-                this.postsData = r.data
-
-            })
 
 
-            this.getApi()
-        }
     },
     mounted(){
-        this.getApi()
     }
 }
 </script>
