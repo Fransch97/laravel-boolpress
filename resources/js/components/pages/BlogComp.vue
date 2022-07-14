@@ -1,22 +1,10 @@
 <template>
     <div>
         <header-comp></header-comp>
-        <h1>Posts</h1>
-        <div class="container">
+        <h1>Blog</h1>
 
-            <div class="card" v-for="post in postsData" :key="post.id">
-                <h2>{{post.title}}</h2>
-                <span v-for="tag in post.tags" :key="tag.id" >
-                {{tag.name}}
-                </span>
-                <p>{{post.content}}</p>
-                <p>{{post.likes}}</p>
-                <span class="likes"
-                onclick="likes(post.id)"
-                >&#10084;</span>
-            </div>
+        <footer-comp></footer-comp>
 
-        </div>
 
     </div>
 </template>
@@ -24,9 +12,10 @@
 <script>
 import Axios from 'axios'
 import HeaderComp from '../partials/HeaderComp.vue'
+import FooterComp from '../partials/FooterComp.vue'
 
 export default {
-  components: { HeaderComp },
+  components: { HeaderComp, FooterComp },
     name: "App",
     data() {
         return {

@@ -17,7 +17,7 @@ const router = new VueRouter({
         {
             path : "/about",
             name : "about",
-            component: ()=> import('./components/pages/BlogComp')
+            component: ()=> import('./components/pages/AboutComp')
         },
         {
             path : "/blog",

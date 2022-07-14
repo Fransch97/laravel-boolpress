@@ -69,6 +69,39 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+    body{
+    background-color: black;
+    color: white;
+    text-align: center;
+    }
+
+    nav{
+        background: yellowgreen;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            list-style: none;
+            margin: 0 30px;
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: bolder;
+                font-size: 1.3rem;
+                &:hover,
+                &:active{
+                    text-decoration: underline;
+                    color: rgb(15, 69, 150);
+                }
+            }
+        }
+    }
 </style>

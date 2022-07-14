@@ -6,10 +6,12 @@
 
             <div class="card" v-for="post in postsData" :key="post.id">
                 <h2>{{post.title}}</h2>
-                <span v-for="tag in post.tags" :key="tag.id" >
-                {{tag.name}}
-                </span>
-                <p>{{post.content}}</p>
+                <div class="div">
+                    <span v-for="tag in post.tags" :key="tag.id" >
+                    {{tag.name}}
+                    </span>
+                </div>
+                <p class="content">{{post.content}}</p>
                 <p>{{post.likes}}</p>
                 <span class="likes"
                 onclick="likes(post.id)"
@@ -17,16 +19,17 @@
             </div>
 
         </div>
-
+        <footer-comp></footer-comp>
     </div>
 </template>
 
 <script>
 import Axios from 'axios'
 import HeaderComp from '../partials/HeaderComp.vue'
+import FooterComp from '../partials/FooterComp.vue'
 
 export default {
-  components: { HeaderComp },
+  components: { HeaderComp, FooterComp },
     name: "App",
     data() {
         return {
@@ -71,6 +74,34 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
+
+.container{
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card{
+        margin: 20px 20px;
+        width: 250px;
+        padding: 20px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        .content{
+            flex-grow: 1;
+        }
+        .likes{
+
+            font-size: 30px;
+            color: red;
+            cursor: pointer;
+            &:hover{
+                font-size: 40px;
+            }
+        }
+    }
+}
 </style>

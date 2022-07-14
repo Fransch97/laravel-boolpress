@@ -12,11 +12,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _partials_HeaderComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../partials/HeaderComp.vue */ "./resources/js/components/partials/HeaderComp.vue");
+/* harmony import */ var _partials_FooterComp_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../partials/FooterComp.vue */ "./resources/js/components/partials/FooterComp.vue");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    HeaderComp: _partials_HeaderComp_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    HeaderComp: _partials_HeaderComp_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    FooterComp: _partials_FooterComp_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   name: "App",
   data: function data() {
@@ -70,23 +73,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("header-comp"), _vm._v(" "), _c("h1", [_vm._v("Posts")]), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, _vm._l(_vm.postsData, function (post) {
-    return _c("div", {
-      key: post.id,
-      staticClass: "card"
-    }, [_c("h2", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _vm._l(post.tags, function (tag) {
-      return _c("span", {
-        key: tag.id
-      }, [_vm._v("\n                " + _vm._s(tag.name) + "\n                ")]);
-    }), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.content))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.likes))]), _vm._v(" "), _c("span", {
-      staticClass: "likes",
-      attrs: {
-        onclick: "likes(post.id)"
-      }
-    }, [_vm._v("❤")])], 2);
-  }), 0)], 1);
+  return _c("div", [_c("header-comp"), _vm._v(" "), _c("h1", [_vm._v("Contacts")]), _vm._v(" "), _c("footer-comp")], 1);
 };
 
 var staticRenderFns = [];
