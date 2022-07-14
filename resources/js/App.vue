@@ -104,4 +104,7 @@ export default {
             }
         }
     }
+    main{
+        min-height: calc(100vh - (100px + 50px)) ;
+    }
 </style>

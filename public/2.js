@@ -73,10 +73,15 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("header-comp"), _vm._v(" "), _c("h1", [_vm._v("About")]), _vm._v(" "), _c("footer-comp")], 1);
+  return _c("div", [_c("header-comp"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("footer-comp")], 1);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("main", [_c("h1", [_vm._v("About")])]);
+}];
 render._withStripped = true;
 
 

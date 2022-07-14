@@ -1,7 +1,11 @@
 <template>
     <div>
         <header-comp></header-comp>
-        <h1>About</h1>
+        <main>
+
+            <h1>About</h1>
+
+        </main>
         <footer-comp></footer-comp>
 
     </div>

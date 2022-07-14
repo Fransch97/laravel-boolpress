@@ -1,24 +1,28 @@
 <template>
     <div>
         <header-comp></header-comp>
-        <h1>Posts</h1>
-        <div class="container">
+        <main>
 
-            <div class="card" v-for="post in postsData" :key="post.id">
-                <h2>{{post.title}}</h2>
-                <div class="div">
-                    <span v-for="tag in post.tags" :key="tag.id" >
-                    {{tag.name}}
-                    </span>
+            <h1>Posts</h1>
+            <div class="container">
+
+                <div class="card" v-for="post in postsData" :key="post.id">
+                    <h2>{{post.title}}</h2>
+                    <div class="div">
+                        <span v-for="tag in post.tags" :key="tag.id" >
+                        {{tag.name}}
+                        </span>
+                    </div>
+                    <p class="content">{{post.content}}</p>
+                    <p>{{post.likes}}</p>
+                    <span class="likes"
+                    onclick="likes(post.id)"
+                    >&#10084;</span>
                 </div>
-                <p class="content">{{post.content}}</p>
-                <p>{{post.likes}}</p>
-                <span class="likes"
-                onclick="likes(post.id)"
-                >&#10084;</span>
+
             </div>
 
-        </div>
+        </main>
         <footer-comp></footer-comp>
     </div>
 </template>
