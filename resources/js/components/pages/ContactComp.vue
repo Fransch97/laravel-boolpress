@@ -1,6 +1,7 @@
 <template>
     <div>
-        <!-- <h1>Posts</h1>
+        <header-comp></header-comp>
+        <h1>Posts</h1>
         <div class="container">
 
             <div class="card" v-for="post in postsData" :key="post.id">
@@ -15,16 +16,17 @@
                 >&#10084;</span>
             </div>
 
-        </div> -->
-        <router-view></router-view>
+        </div>
 
     </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import HeaderComp from '../partials/HeaderComp.vue'
 
 export default {
+  components: { HeaderComp },
     name: "App",
     data() {
         return {
