@@ -34,6 +34,10 @@ const router = new VueRouter({
             name : "errLike",
             component: ()=> import('./components/errors/ErrorComp')
         },
+        {
+            path : "*",
+            component: ()=> import('./components/errors/ErrorSite')
+        },
 
 
     ]

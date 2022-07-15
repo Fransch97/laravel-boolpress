@@ -91,12 +91,12 @@ export default {
             .then(r=>{
                 console.log(r.data)
                 console.log(i)
-                const banana = r.data.likes
-                // const test = false
-                if(banana){ this.postsData[i].likes = banana
-                }else{
-                    this.$router.push({ name: "errLike"})
-                }
+                const likes = r.data.likes
+                const test = false
+                if(likes) this.postsData[i].likes = likes;
+                else this.$router.push({ name: "errLike"});
+
+
             })
             .catch(function (error) {
                 console.log(error);

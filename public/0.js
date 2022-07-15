@@ -52,15 +52,11 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.urlPut + id).then(function (r) {
         console.log(r.data);
         console.log(i);
-        var banana = r.data.likes; // const test = false
-
-        if (banana) {
-          _this2.postsData[i].likes = banana;
-        } else {
-          _this2.$router.push({
-            name: "errLike"
-          });
-        }
+        var likes = r.data.likes;
+        var test = false;
+        if (likes) _this2.postsData[i].likes = likes;else _this2.$router.push({
+          name: "errLike"
+        });
       })["catch"](function (error) {
         console.log(error);
       });
