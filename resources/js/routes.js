@@ -2,7 +2,6 @@
 import Vue from "vue";
 
 import VueRouter from "vue-router";
-import Home from "./components/pages/HomeComp"
 
 Vue.use(VueRouter);
 
@@ -28,6 +27,11 @@ const router = new VueRouter({
             path : "/contact",
             name : "contact",
             component: ()=> import('./components/pages/ContactComp')
+        },
+        {
+            path : "/post/:slug",
+            name: "show",
+            component: ()=> import('./components/pages/ShowComp')
         },
         {
             path : "/error-like",

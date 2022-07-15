@@ -1,13 +1,16 @@
 <template>
     <div>
         <header-comp></header-comp>
+            <h1>Posts</h1>
         <main>
 
-            <h1>Posts</h1>
             <div class="container">
 
                 <div class="card" v-for="(post, index) in postsData" :key="post.id">
-                    <h2>{{post.title}}</h2>
+                    <h2 @click="showme(post.id)">
+                        <router-link :to="{name: 'show', params:{slug: post.slug}}">{{post.title}}</router-link>
+
+                    </h2>
                     <div class="div">
                         <span v-for="tag in post.tags" :key="tag.id" >
                         {{tag.name}}
@@ -16,8 +19,10 @@
                     <p class="content">{{post.content}}</p>
                     <p>{{post.likes}}</p>
                     <span class="likes"
-                    @click="like(post.id, index)"
-                    >&#10084;</span>
+                        @click="like(post.id, index)"
+                    >
+                    &#10084;
+                    </span>
                 </div>
 
 
@@ -64,8 +69,9 @@ export default {
     name: "App",
     data() {
         return {
-            urlGet: "/api/posts",
+            urlGet: "/api/posts/",
             urlPut: "/api/posts/update/",
+            urlShow: "/api/posts/show/",
             postsData : [],
             lastPage : null,
             nowPage: null
@@ -79,7 +85,6 @@ export default {
                 }
             })
             .then(r=>{
-                // console.log(r.data)
                 this.postsData = r.data.data
                 this.lastPage = r.data.last_page
                 this.nowPage = r.data.current_page
@@ -89,8 +94,7 @@ export default {
         like(id, i){
             Axios.put(this.urlPut+id)
             .then(r=>{
-                console.log(r.data)
-                console.log(i)
+
                 const likes = r.data.likes
                 const test = false
                 if(likes) this.postsData[i].likes = likes;
@@ -101,6 +105,13 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
+        },
+
+        showme(id){
+            Axios.get(this.urlShow + id)
+            .then(r=>{
+                console.log(r.data)
+            })
         }
     },
     mounted(){
