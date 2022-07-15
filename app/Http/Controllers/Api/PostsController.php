@@ -17,5 +17,6 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->likes = $post->likes + 1;
         $post->update();
+        return response()->json($post);
     }
 }

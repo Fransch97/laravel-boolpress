@@ -40,20 +40,20 @@ __webpack_require__.r(__webpack_exports__);
           page: page
         }
       }).then(function (r) {
-        console.log(r.data);
+        // console.log(r.data)
         _this.postsData = r.data.data;
         _this.lastPage = r.data.last_page;
         _this.nowPage = r.data.current_page;
       });
     },
-    like: function like(id) {
+    like: function like(id, i) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put(this.urlPut + id).then(function (r) {
         console.log(r.data);
-        _this2.postsData = r.data;
-
-        _this2.getApi();
+        console.log(i);
+        var banana = r.data.likes;
+        _this2.postsData[i].likes = banana;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -83,7 +83,7 @@ var render = function render() {
 
   return _c("div", [_c("header-comp"), _vm._v(" "), _c("main", [_c("h1", [_vm._v("Posts")]), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, _vm._l(_vm.postsData, function (post) {
+  }, _vm._l(_vm.postsData, function (post, index) {
     return _c("div", {
       key: post.id,
       staticClass: "card"
@@ -99,7 +99,7 @@ var render = function render() {
       staticClass: "likes",
       on: {
         click: function click($event) {
-          return _vm.like(post.id);
+          return _vm.like(post.id, index);
         }
       }
     }, [_vm._v("❤")])]);

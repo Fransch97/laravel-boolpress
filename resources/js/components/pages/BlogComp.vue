@@ -6,7 +6,7 @@
             <h1>Posts</h1>
             <div class="container">
 
-                <div class="card" v-for="post in postsData" :key="post.id">
+                <div class="card" v-for="(post, index) in postsData" :key="post.id">
                     <h2>{{post.title}}</h2>
                     <div class="div">
                         <span v-for="tag in post.tags" :key="tag.id" >
@@ -16,7 +16,7 @@
                     <p class="content">{{post.content}}</p>
                     <p>{{post.likes}}</p>
                     <span class="likes"
-                    @click="like(post.id)"
+                    @click="like(post.id, index)"
                     >&#10084;</span>
                 </div>
 
@@ -79,20 +79,20 @@ export default {
                 }
             })
             .then(r=>{
-                console.log(r.data)
+                // console.log(r.data)
                 this.postsData = r.data.data
                 this.lastPage = r.data.last_page
                 this.nowPage = r.data.current_page
             })
         },
 
-        like(id){
-            Axios.put(this.urlPut+id
-            )
+        like(id, i){
+            Axios.put(this.urlPut+id)
             .then(r=>{
                 console.log(r.data)
-                this.postsData = r.data
-                this.getApi()
+                console.log(i)
+                const banana = r.data.likes
+                this.postsData[i].likes = banana
             })
             .catch(function (error) {
                 console.log(error);
