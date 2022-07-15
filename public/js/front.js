@@ -17711,42 +17711,42 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'home',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/pages/HomeComp */ "./resources/js/components/pages/HomeComp.vue"));
+      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/pages/HomeComp */ "./resources/js/components/pages/HomeComp.vue"));
     }
   }, {
     path: "/about",
     name: "about",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/pages/AboutComp */ "./resources/js/components/pages/AboutComp.vue"));
+      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/pages/AboutComp */ "./resources/js/components/pages/AboutComp.vue"));
     }
   }, {
     path: "/blog",
     name: "blog",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/pages/BlogComp */ "./resources/js/components/pages/BlogComp.vue"));
+      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/pages/BlogComp */ "./resources/js/components/pages/BlogComp.vue"));
     }
   }, {
     path: "/contact",
     name: "contact",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/pages/ContactComp */ "./resources/js/components/pages/ContactComp.vue"));
+      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/pages/ContactComp */ "./resources/js/components/pages/ContactComp.vue"));
     }
   }, {
     path: "/post/:slug",
     name: "show",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/pages/ShowComp */ "./resources/js/components/pages/ShowComp.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/pages/ShowComp */ "./resources/js/components/pages/ShowComp.vue"));
     }
   }, {
     path: "/error-like",
     name: "errLike",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorComp */ "./resources/js/components/errors/ErrorComp.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorComp */ "./resources/js/components/errors/ErrorComp.vue"));
     }
   }, {
     path: "*",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorSite */ "./resources/js/components/errors/ErrorSite.vue"));
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorSite */ "./resources/js/components/errors/ErrorSite.vue"));
     }
   }]
 });

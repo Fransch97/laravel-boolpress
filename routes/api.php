@@ -21,3 +21,4 @@ Route::get('posts/catgeroies','Api\PostsController@indexCategory');
 Route::get('posts/tags','Api\PostsController@indexTag');
 Route::get('posts/catgeroies/{id}','Api\PostsController@postsCategory');
 Route::get('posts/tags/{id}','Api\PostsController@postsTag');
+Route::post('posts/comment','Api\PostsController@createComment');

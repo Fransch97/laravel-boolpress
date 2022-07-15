@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Category;
+use App\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
@@ -23,7 +24,7 @@ class PostsController extends Controller
     }
 
     public function show($id){
-        $post = Post::where('slug', $id)->first();
+        $post = Post::where('slug', $id)->with('comments')->first();
         return response()->json($post);
     }
 
@@ -47,4 +48,16 @@ class PostsController extends Controller
         return response()->json($tags);
     }
 
+    public function createComment(Request $request){
+        $new_comment_data = $request->all();
+        $new_comment = new Comment();
+        $new_comment->fill($new_comment_data);
+        $comments = Comment::all();
+        if(empty($new_comment->user)){
+
+            $new_comment->user = "Anonymus-" . count($comments);
+        }
+        $new_comment->save();
+        return redirect()->away('http://127.0.0.1:8000/post/' . $request->url);
+    }
 }

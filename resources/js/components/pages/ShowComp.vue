@@ -5,7 +5,7 @@
         <div class="container">
             <h1>{{card.title}}</h1>
             <p>{{card.content}}</p>
-
+            <comments-com :xec="card" :post="card.id"></comments-com>
         </div>
     </main>
     <footer-comp></footer-comp>
@@ -16,8 +16,9 @@
 import Axios from 'axios'
 import FooterComp from '../partials/FooterComp.vue'
 import HeaderComp from '../partials/HeaderComp.vue'
+import CommentsCom from '../minicomps/CommentsCom.vue'
 export default {
-  components: { HeaderComp, FooterComp },
+  components: { HeaderComp, FooterComp, CommentsCom },
   data() {
     return {
         urlApi: "/api/posts/show/",
