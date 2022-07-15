@@ -92,7 +92,11 @@ export default {
                 console.log(r.data)
                 console.log(i)
                 const banana = r.data.likes
-                this.postsData[i].likes = banana
+                // const test = false
+                if(banana){ this.postsData[i].likes = banana
+                }else{
+                    this.$router.push({ name: "errLike"})
+                }
             })
             .catch(function (error) {
                 console.log(error);

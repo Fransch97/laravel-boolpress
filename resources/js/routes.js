@@ -29,6 +29,12 @@ const router = new VueRouter({
             name : "contact",
             component: ()=> import('./components/pages/ContactComp')
         },
+        {
+            path : "/error-like",
+            name : "errLike",
+            component: ()=> import('./components/errors/ErrorComp')
+        },
+
 
     ]
 })

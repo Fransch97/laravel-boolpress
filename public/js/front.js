@@ -18192,6 +18192,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: function component() {
       return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/pages/ContactComp */ "./resources/js/components/pages/ContactComp.vue"));
     }
+  }, {
+    path: "/error-like",
+    name: "errLike",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorComp */ "./resources/js/components/errors/ErrorComp.vue"));
+    }
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
