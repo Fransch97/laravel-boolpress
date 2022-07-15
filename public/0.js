@@ -218,7 +218,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Vai")])]), _vm._v(" "), _vm._l(_vm.xec.comments, function (comment) {
+  }, [_vm._v("Vai")])]), _vm._v(" "), _c("h2", [_vm._v("Commenti")]), _vm._v(" "), _vm._l(_vm.xec.comments, function (comment) {
     return _c("div", {
       key: comment.id
     }, [_c("p", [_vm._v(" " + _vm._s(comment.user))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(comment.comment))])]);
@@ -346,7 +346,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "div[data-v-5eb70360] {\n  max-width: 500px;\n  margin: 50px auto;\n}\ndiv input[data-v-5eb70360], div textarea[data-v-5eb70360] {\n  display: block;\n  margin-top: 20px;\n  padding: 20px;\n  width: 100%;\n  resize: none;\n  border-radius: 10px;\n  border-width: 0;\n  font-size: 1rem;\n}\ndiv button[data-v-5eb70360] {\n  padding: 10px;\n  width: 100%;\n  margin-top: 20px;\n}\ndiv .notsee[data-v-5eb70360] {\n  display: none;\n}", ""]);
+exports.push([module.i, "div[data-v-5eb70360] {\n  max-width: 500px;\n  margin: 50px auto;\n}\ndiv h2[data-v-5eb70360] {\n  margin-top: 50px;\n}\ndiv input[data-v-5eb70360], div textarea[data-v-5eb70360] {\n  display: block;\n  margin-top: 20px;\n  padding: 20px;\n  width: 100%;\n  resize: none;\n  border-radius: 10px;\n  border-width: 0;\n  font-size: 1rem;\n}\ndiv button[data-v-5eb70360] {\n  padding: 10px;\n  width: 100%;\n  margin-top: 20px;\n}\ndiv .notsee[data-v-5eb70360] {\n  display: none;\n}", ""]);
 
 // exports
 

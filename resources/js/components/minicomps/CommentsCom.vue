@@ -7,6 +7,7 @@
             <input type="text" class="notsee" name="post_id" v-model="post">
             <button type="submit">Vai</button>
         </form>
+        <h2>Commenti</h2>
         <div v-for="comment in xec.comments" :key="comment.id">
             <p> {{comment.user}}</p>
             <p>{{comment.comment}}</p>
@@ -43,7 +44,9 @@ export default {
     div{
         max-width: 500px;
         margin: 50px auto;
-
+        h2{
+            margin-top: 50px;
+        }
         input,textarea{
             display: block;
             margin-top: 20px;
