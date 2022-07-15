@@ -2077,7 +2077,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-color: black;\n  color: white;\n  text-align: center;\n}\nnav {\n  background: yellowgreen;\n  height: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nnav li {\n  list-style: none;\n  margin: 0 30px;\n}\nnav li a {\n  text-decoration: none;\n  color: black;\n  font-weight: bolder;\n  font-size: 1.3rem;\n}\nnav li a:hover, nav li a:active {\n  text-decoration: underline;\n  color: rgb(15, 69, 150);\n}\nmain {\n  min-height: calc(100vh - 150px);\n  display: flex;\n  flex-direction: column;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-color: black;\n  color: white;\n  text-align: center;\n}\nnav {\n  background: yellowgreen;\n  height: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nnav li {\n  list-style: none;\n  margin: 0 30px;\n}\nnav li a {\n  text-decoration: none;\n  color: black;\n  font-weight: bolder;\n  font-size: 1.3rem;\n}\nnav li a:hover, nav li a:active {\n  text-decoration: underline;\n  color: rgb(15, 69, 150);\n}\nmain {\n  min-height: calc(100vh - 150px);\n  display: flex;\n}", ""]);
 
 // exports
 
@@ -17723,7 +17723,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/blog",
     name: "blog",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/pages/BlogComp */ "./resources/js/components/pages/BlogComp.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/pages/BlogComp */ "./resources/js/components/pages/BlogComp.vue"));
     }
   }, {
     path: "/contact",
@@ -17741,7 +17741,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/error-like",
     name: "errLike",
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorComp */ "./resources/js/components/errors/ErrorComp.vue"));
+      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/errors/ErrorComp */ "./resources/js/components/errors/ErrorComp.vue"));
     }
   }, {
     path: "*",

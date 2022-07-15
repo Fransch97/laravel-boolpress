@@ -27,6 +27,24 @@ class PostsController extends Controller
         return response()->json($post);
     }
 
+    public function indexCategory(){
+        $categories = Category::all() ;
+        return response()->json($categories);
+    }
 
+    public function indexTag(){
+        $tags = Tag::all() ;
+        return response()->json($tags);
+    }
+
+    public function postsCategory($id){
+        $categories = Category::where('id',$id)->with('posts')->first();
+        return response()->json($categories);
+    }
+
+    public function postsTag($id){
+        $tags = Tag::where('id',$id)->with('posts')->first();
+        return response()->json($tags);
+    }
 
 }

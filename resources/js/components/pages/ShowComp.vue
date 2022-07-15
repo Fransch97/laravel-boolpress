@@ -2,8 +2,11 @@
   <div>
     <header-comp></header-comp>
     <main>
-        <h1>{{card.title}}</h1>
-        <p>{{card.content}}</p>
+        <div class="container">
+            <h1>{{card.title}}</h1>
+            <p>{{card.content}}</p>
+
+        </div>
     </main>
     <footer-comp></footer-comp>
   </div>
@@ -37,6 +40,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .container{
+        width: 100%;
+        padding: 100px;
+        text-align: center;
+    }
 </style>
